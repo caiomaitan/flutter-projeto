@@ -1,0 +1,28 @@
+name: flutter_application_1
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # 🔥 Firebase
+  firebase_core: ^2.25.4
+  firebase_auth: ^4.17.4
+  firebase_auth_web: ^5.8.13  # ✅ compatível com firebase_auth 4.17.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
