@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'cadastro.dart'; // Tela de cadastro
 import 'home_page.dart';
+import 'rec_senha_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -79,6 +80,17 @@ class _LoginPageState extends State<LoginPage> {
               TextButton(
                 onPressed: _irParaCadastro,
                 child: const Text('Criar conta'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const RecSenhaPage(),
+                    ),
+                  );
+                },
+                child: const Text('Esqueci minha senha'),
               ),
             ],
           ),
