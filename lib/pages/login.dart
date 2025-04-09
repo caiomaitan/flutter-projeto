@@ -44,16 +44,18 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: const Color(0xFFFCF5FF), // Fundo claro
       body: Center(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(32),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(
-                Icons.lock,
-                size: 100,
-                color: Color(0xFFFF6B6B),
-              ), // Coral
+              ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Image.network(
+                  'https://images-ext-1.discordapp.net/external/N1yoSgIILhedm_9DIvc5SJCI6r6qTKtcPf6UbvLPfUQ/%3Fq%3Dtbn%3AANd9GcQ0QFNbpNHXVEKjqbe-YzTSRIZcRx0JlTrhyA%26s/https/encrypted-tbn0.gstatic.com/images?format=webp',
+                  height: 140,
+                ),
+              ),
               const SizedBox(height: 20),
               TextField(
                 controller: _emailController,
