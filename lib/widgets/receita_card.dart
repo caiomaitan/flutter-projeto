@@ -4,8 +4,14 @@ import '../models/receita.dart';
 class ReceitaCard extends StatelessWidget {
   final Receita receita;
   final VoidCallback? onTap;
+  final Widget? trailing; // Suporte ao botão de favoritos
 
-  const ReceitaCard({super.key, required this.receita, this.onTap});
+  const ReceitaCard({
+    super.key,
+    required this.receita,
+    this.onTap,
+    this.trailing,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,15 +25,21 @@ class ReceitaCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.vertical(
-                top: Radius.circular(16),
-              ),
-              child: Image.network(
-                receita.imagemUrl,
-                height: 180,
-                fit: BoxFit.cover,
-              ),
+            Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(16),
+                  ),
+                  child: Image.network(
+                    receita.imagemUrl,
+                    height: 180,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                if (trailing != null)
+                  Positioned(top: 8, right: 8, child: trailing!),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.all(16),
@@ -44,7 +56,10 @@ class ReceitaCard extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     receita.descricao,
-                    style: const TextStyle(fontSize: 16, color: Colors.grey),
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.deepPurple,
+                    ),
                   ),
                 ],
               ),
