@@ -8,6 +8,7 @@ import 'receitas/buscar_receitas.dart';
 import 'receitas/favoritas.dart'; // Importa a tela de favoritas
 import 'package:provider/provider.dart';
 import '../providers/receita_providers.dart';
+import 'package:flutter_application_1/pages/receitas/sugestao_dia.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -67,6 +68,18 @@ class _HomePageState extends State<HomePage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => BuscarReceitasPage(receitas: receitas),
+                ),
+              );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.lightbulb),
+            tooltip: 'Sugestão do Dia',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SugestaoDiaPage(receitas: receitas),
                 ),
               );
             },
