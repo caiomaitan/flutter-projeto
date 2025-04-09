@@ -30,13 +30,24 @@ class _RecSenhaPageState extends State<RecSenhaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Recuperar Senha')),
+      backgroundColor: const Color(0xFFFCF5FF), // Fundo claro
+      appBar: AppBar(
+        title: const Text('Recuperar Senha'),
+        backgroundColor: const Color(0xFFB388EB),
+        foregroundColor: Colors.white,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(32),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Digite seu email para recuperar a senha:'),
+            const Icon(Icons.email, size: 100, color: Color(0xFFFF6B6B)),
+            const SizedBox(height: 20),
+            const Text(
+              'Digite seu email para recuperar a senha:',
+              style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.center,
+            ),
             const SizedBox(height: 16),
             TextField(
               controller: _emailController,
@@ -49,8 +60,11 @@ class _RecSenhaPageState extends State<RecSenhaPage> {
             ElevatedButton(
               onPressed: _recuperarSenha,
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.deepPurple,
+                backgroundColor: const Color(0xFFB388EB),
                 minimumSize: const Size.fromHeight(50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
               ),
               child: const Text('Enviar'),
             ),

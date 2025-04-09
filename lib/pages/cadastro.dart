@@ -21,7 +21,7 @@ class _CadastroPageState extends State<CadastroPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Conta criada com sucesso!')),
       );
-      Navigator.pop(context); // Volta para o login
+      Navigator.pop(context);
     } catch (e) {
       ScaffoldMessenger.of(
         context,
@@ -32,13 +32,24 @@ class _CadastroPageState extends State<CadastroPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Criar conta')),
+      backgroundColor: const Color(0xFFFCF5FF), // Fundo claro
+      appBar: AppBar(
+        title: const Text('Criar conta'),
+        backgroundColor: const Color(0xFFB388EB), // Lavanda
+        foregroundColor: Colors.white,
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(32),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              const Icon(
+                Icons.person_add,
+                size: 100,
+                color: Color(0xFFFF6B6B),
+              ), // Ícone coral
+              const SizedBox(height: 20),
               TextField(
                 controller: _emailController,
                 decoration: const InputDecoration(
@@ -59,8 +70,11 @@ class _CadastroPageState extends State<CadastroPage> {
               ElevatedButton(
                 onPressed: _criarConta,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.deepPurple,
+                  backgroundColor: const Color(0xFFB388EB),
                   minimumSize: const Size.fromHeight(50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
                 child: const Text('Cadastrar'),
               ),

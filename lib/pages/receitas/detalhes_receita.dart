@@ -19,10 +19,40 @@ class DetalhesReceitaPage extends StatelessWidget {
             const SizedBox(height: 16),
             Text(
               receita.titulo,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
-            Text(receita.descricao, style: const TextStyle(fontSize: 16)),
+            Text(
+              receita.descricao,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'Ingredientes',
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            ...receita.ingredientes.map(
+              (ingrediente) => Text('- $ingrediente'),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'Modo de Preparo',
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            ...receita.modoPreparo.asMap().entries.map(
+              (entry) => Padding(
+                padding: const EdgeInsets.only(bottom: 4.0),
+                child: Text('${entry.key + 1}. ${entry.value}'),
+              ),
+            ),
           ],
         ),
       ),

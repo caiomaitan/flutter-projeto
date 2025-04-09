@@ -35,7 +35,13 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       title: 'PratoPronto',
       theme: ThemeData(
-        primaryColor: const Color(0xFFB388EB), // Lavanda suave
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Color(0xFFB388EB),
+          primary: Color(0xFFB388EB), // Lavanda suave
+          secondary: Color(0xFFFF6B6B), // Vermelho coral
+          brightness: Brightness.light,
+        ),
+        useMaterial3: true, // Habilita visual mais moderno
         scaffoldBackgroundColor: const Color(0xFFFCF5FF), // Fundo claro
         appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xFFB388EB),
@@ -43,11 +49,7 @@ class MyApp extends StatelessWidget {
           elevation: 2,
         ),
         iconTheme: const IconThemeData(
-          color: Color(0xFFFF6B6B), // Vermelho coral
-        ),
-        textTheme: const TextTheme(
-          bodyMedium: TextStyle(color: Colors.black87),
-          bodySmall: TextStyle(color: Colors.grey),
+          color: Color(0xFFFF6B6B), // Ícones em vermelho coral
         ),
         cardColor: Colors.white,
         cardTheme: CardTheme(
@@ -56,7 +58,13 @@ class MyApp extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
           ),
         ),
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(color: Colors.black87),
+          bodySmall: TextStyle(color: Colors.grey),
+        ),
+        fontFamily: 'Roboto', // ou outra de sua preferência
       ),
+
       home: const LoginPage(),
       debugShowCheckedModeBanner: false,
     );
