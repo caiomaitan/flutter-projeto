@@ -9,7 +9,6 @@ O **PratoPronto** é um aplicativo desenvolvido em Flutter que tem como objetivo
 - Visualização completa das receitas (nome, descrição, ingredientes e modo de preparo)
 - Busca de receitas por nome
 - Tela "Sobre" com informações do app
-- Feedbacks com `SnackBar` e `AlertDialog`
 - Estilo visual com cores suaves (lavanda e coral)
 - Gerenciamento de estado simples com `setState`
 
